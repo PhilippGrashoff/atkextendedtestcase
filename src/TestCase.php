@@ -12,12 +12,11 @@ class TestCase extends \Atk4\Core\Phpunit\TestCase
 {
     protected array $sqlitePersistenceModels = [];
 
-    protected function getSqliteTestPersistence(array $additionalClasses = []): Persistence
+    protected function getSqliteTestPersistence(array $additionalModels = []): Sql
     {
-        $allClasses = array_merge($this->sqlitePersistenceModels, $additionalClasses);
+        $allClasses = array_merge($this->sqlitePersistenceModels, $additionalModels);
 
         $persistence = new Sql('sqlite::memory:');
-        $persistence->driverType = 'sqlite';
 
         foreach ($allClasses as $className) {
             $model = new $className($persistence);
