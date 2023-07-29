@@ -19,13 +19,17 @@ class TestCaseTest extends TestCase
     {
         $persistence = $this->getSqliteTestPersistence();
         $testModel1 = new TestModel1($persistence);
-        self::assertTrue(true);
+        $someEntity = $testModel1->createEntity();
+        $someEntity->save();
+        self::assertGreaterThan(0, $someEntity->getId());
     }
 
     public function testAdditionalModels(): void
     {
         $persistence = $this->getSqliteTestPersistence();
         $testModel2 = new TestModel2($persistence);
-        self::assertTrue(true);
+        $someEntity = $testModel2->createEntity();
+        $someEntity->save();
+        self::assertGreaterThan(0, $someEntity->getId());
     }
 }
