@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace atkextendedtestcase;
 
-use atk4\data\Persistence;
 use Atk4\Data\Persistence\Sql;
 use Atk4\Data\Schema\Migrator;
 
